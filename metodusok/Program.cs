@@ -11,7 +11,23 @@
             menupontok.Add("Kilépés");
             ListazMenu(menupontok);
             Console.WriteLine("Vége!");
-        }
+            switch: (menupontok)
+                {
+                case 1:
+                    ;
+                    break;
+                case 2:
+                    ;
+                    break;
+                case 3:
+                    PitagoraszSzamitas();
+                    break;
+                default:
+                    Console.WriteLine("");
+                    break;
+                }
+
+            }
 
         private static void ListazMenu(List<string> menupontok)
         {
@@ -28,5 +44,21 @@
             Console.WriteLine("Üdvözlöm a háromszög szuper alkalmazásban!");
 
         }
+        private static void PitagoraszSzamitas()
+        {
+            Console.Clear();
+            Console.WriteLine("Pitagorasz tétel számítás");
+
+            Console.Write("Add meg az a oldalt: ");
+            double a = double.Parse(Console.ReadLine());
+
+            Console.Write("Add meg a b oldalt: ");
+            double b = double.Parse(Console.ReadLine());
+
+            double c = Math.Sqrt(a * a + b * b);
+
+            Console.WriteLine($"Az átfogó értéke: {c}");
+        }
+
     }
 }
