@@ -74,6 +74,30 @@ namespace metodusok
             Console.WriteLine("Üdvözlöm a háromszög szuper alkalmazásban!");
 
         }
+        private static void TeruletSzamitas()
+        {
+            Console.Clear();
+            Console.WriteLine("Háromszög terület számítása");
+            Console.WriteLine("");
+
+            Console.Write("Add meg az alap hosszat (a): ");
+            double a = double.Parse(Console.ReadLine());
+
+            Console.Write("Add meg a magasságot (ma): ");
+            double ma = double.Parse(Console.ReadLine());
+
+            double terulet = (a * ma) / 2;
+
+            Console.WriteLine($"A háromszög területe: {terulet}");
+        }
+
+
+
+
+
+    }
+
+}
         private static void PitagoraszSzamitas()
         {
             Console.Clear();
