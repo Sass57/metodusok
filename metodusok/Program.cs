@@ -12,11 +12,12 @@ namespace metodusok
             menupontok.Add("Kilépés");
             menupontok.Add("Megszerkeszthető-e a háromszög");
             ListazMenu(menupontok);
+           
             Console.WriteLine("Vége!");
             double a_Oldal = Convert.ToDouble(Console.ReadLine());
             double b_Oldal = Convert.ToDouble(Console.ReadLine());
             double c_Oldal = Convert.ToDouble(Console.ReadLine());
-
+;
 
         }
 
@@ -56,10 +57,7 @@ namespace metodusok
             switch (i)
             {
                 case 1:
-                    double a_Oldal = Convert.ToDouble(Console.ReadLine());
-                    double b_Oldal = Convert.ToDouble(Console.ReadLine());
-                    double c_Oldal = Convert.ToDouble(Console.ReadLine());
-                    Console.WriteLine($"kerület: {KeruletSzamitas(a_Oldal, b_Oldal, c_Oldal)}");
+                    KeruletSzamitas();
                     break;
                 default:
                     Console.WriteLine($"Nem olyan szmot adtál meg ami 1-{menupontok.Count} között van");
@@ -95,11 +93,12 @@ namespace metodusok
 
 
 
-    }
+    
 
-}
-        private static void PitagoraszSzamitas()
+
+        public static void PitagoraszSzamitas()
         {
+
             Console.Clear();
             Console.WriteLine("Pitagorasz tétel számítás");
 
@@ -114,8 +113,12 @@ namespace metodusok
             Console.WriteLine($"Az átfogó értéke: {c}");
         }
 
-        private static void MegszerkeszthetoE(double a_oldal, double b_oldal, double c_oldal)
+        private static void MegszerkeszthetoE()
         {
+            double a_oldal = Convert.ToDouble(Console.ReadLine());
+            double b_oldal = Convert.ToDouble(Console.ReadLine());
+            double c_oldal = Convert.ToDouble(Console.ReadLine());
+
             if (a_oldal + b_oldal > c_oldal && b_oldal + c_oldal > a_oldal && a_oldal + c_oldal > b_oldal)
             { Console.WriteLine("Igen,a haromsög megszerkeszthető"); }
             else { Console.WriteLine("Sajnálom,a háromszög nem szerkeszthető meg"); }
@@ -125,8 +128,12 @@ namespace metodusok
 
 
 
-        public static double KeruletSzamitas(double a_Oldal, double b_Oldal, double c_Oldal)
+        private static double KeruletSzamitas()
         {
+            double a_Oldal = Convert.ToDouble(Console.ReadLine());
+            double b_Oldal = Convert.ToDouble(Console.ReadLine());
+            double c_Oldal = Convert.ToDouble(Console.ReadLine());
+
             double kerulet = a_Oldal + b_Oldal + c_Oldal;
             return kerulet;
 
