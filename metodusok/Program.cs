@@ -7,61 +7,57 @@ namespace metodusok
 
             UdvozloKep();
             List<string> menupontok = new List<string>();
-            menupontok.Add("Kerület számítása");
-            menupontok.Add("Terület számítása");
-            menupontok.Add("Kilépés");
-            menupontok.Add("Megszerkeszthető-e a háromszög");
-            ListazMenu(menupontok);
-           
-            Console.WriteLine("Vége!");
-            double a_Oldal = Convert.ToDouble(Console.ReadLine());
-            double b_Oldal = Convert.ToDouble(Console.ReadLine());
-            double c_Oldal = Convert.ToDouble(Console.ReadLine());
-;
 
+            menupontok.Add("Kerület számítása (F1)");
+            menupontok.Add("Terület számítása (F2)");
+            menupontok.Add("Pitagorasz számítás (F3)");
+            menupontok.Add("Megszerkeszthető-e a háromszög (F4)");
+            menupontok.Add("Kilépés (Esc)");
+            ListazMenu(menupontok);
+            FeladatValasztas(menupontok);
+            Console.WriteLine("Vége!");
         }
 
-
-        private static int ListazMenu(List<string> menupontok)
+        private static void ListazMenu(List<string> menupontok)
         {
-            Console.WriteLine("Válassz egy menüpontot!");
-            Console.WriteLine();
-
-            for (int i = 0; i < menupontok.Count; i++)
+        //TODO: Mászlai Munkája
+            Console.SetCursorPosition(30, 3);
+            Console.WriteLine("Válassz egy mnüponot!");
+            int sor = menupontok.Count;
+            foreach (string pont in menupontok)
             {
-                int sorszam = i + 1;
-                string szoveg = menupontok[i];
-                Console.WriteLine(sorszam + ". " + szoveg);
+                Console.SetCursorPosition(30, sor);
+                Console.WriteLine(pont);
+
+                sor++;
             }
 
-            Console.WriteLine();
-            Console.Write("Írd be a választott menüpont számát: ");
-
-            int valasztas = 0;
-            string bevitel = Console.ReadLine();
-            bool siker = int.TryParse(bevitel, out valasztas);
-
-            while (!siker || valasztas < 1 || valasztas > menupontok.Count)
-            {
-                Console.Write("Hibás adat! Kérlek adj meg egy számot 1 és " + menupontok.Count + " között: ");
-                bevitel = Console.ReadLine();
-                siker = int.TryParse(bevitel, out valasztas);
-            }
-
-            return valasztas;
         }
 
         private static void FeladatValasztas(List<string> menupontok)
         {
-            int i = Convert.ToInt32(Console.ReadLine());
-            switch (i)
+            //TODO: Tas munkája
+
+            ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+            switch (keyInfo.Key)
             {
-                case 1:
+                case ConsoleKey.F1:
+                    Console.Clear();
                     KeruletSzamitas();
                     break;
-                default:
-                    Console.WriteLine($"Nem olyan szmot adtál meg ami 1-{menupontok.Count} között van");
+                case ConsoleKey.F2:
+                    Console.Clear();
+                    TeruletSzamitas();
                     break;
+                case ConsoleKey.F3:
+                    Console.Clear();
+                    PitagoraszSzamitas();
+                    break;
+                case ConsoleKey.F4:
+                    Console.Clear();
+                    MegszerkeszthetoE();
+                    break;
+
 
             }
         }
@@ -74,6 +70,7 @@ namespace metodusok
         }
         private static void TeruletSzamitas()
         {
+            //TODO Mászlai munkája
             Console.Clear();
             Console.WriteLine("Háromszög terület számítása");
             Console.WriteLine("");
@@ -93,12 +90,12 @@ namespace metodusok
 
 
 
-    
+
 
 
         public static void PitagoraszSzamitas()
         {
-
+            //TODO: Kujbus munkája
             Console.Clear();
             Console.WriteLine("Pitagorasz tétel számítás");
 
@@ -115,6 +112,7 @@ namespace metodusok
 
         private static void MegszerkeszthetoE()
         {
+            //TODO Kujbus munkája
             double a_oldal = Convert.ToDouble(Console.ReadLine());
             double b_oldal = Convert.ToDouble(Console.ReadLine());
             double c_oldal = Convert.ToDouble(Console.ReadLine());
@@ -128,15 +126,16 @@ namespace metodusok
 
 
 
-        private static double KeruletSzamitas()
+        private static void KeruletSzamitas()
         {
+            //TODO Tas munkája
+            Console.Write("Add meg a 3 oldal hosszát! ");
             double a_Oldal = Convert.ToDouble(Console.ReadLine());
             double b_Oldal = Convert.ToDouble(Console.ReadLine());
             double c_Oldal = Convert.ToDouble(Console.ReadLine());
 
             double kerulet = a_Oldal + b_Oldal + c_Oldal;
-            return kerulet;
-
+            Console.WriteLine(kerulet);
         }
     }
 }
